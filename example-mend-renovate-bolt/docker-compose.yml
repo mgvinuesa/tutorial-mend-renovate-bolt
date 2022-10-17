@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mend-service:
+    build: ./
+    ports:
+      - "8080:8080"
+    depends_on:
+      - jaeger
+      - zipkin
+  zipkin:
+    image: openzipkin/zipkin:2.12.2
+    ports:
+      - "9411:9411"
+
+ 
